@@ -52,7 +52,7 @@ const newPointStructure ={
 const vowelsOrConsonants = {
 
   3: ['A', 'E', 'I','O', 'U'],
-  1: ['B', 'C', 'D','F', 'G', 'H','J', 'K', 'L','M', 'N', 'O','P', 'Q', 'R','S', 'T', 'V','W', 'X', 'Y', 'Z']
+  1: ['B', 'C', 'D','F', 'G', 'H','J', 'K', 'L','M', 'N','P', 'Q', 'R','S', 'T', 'V','W', 'X', 'Y', 'Z']
 };
 
 
