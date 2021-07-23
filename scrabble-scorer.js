@@ -142,7 +142,7 @@ function simpleScore(userWord){
 
 let word = userWord.toUpperCase();
     //console.log ("Now I'm in simpleScoreDcrabble and the userWord is " +  word);
-	let letterPoints = "";
+	let letterPoints = 0;
   //let simplePointValue = 0;
  
 	for (let i = 0; i < word.length; i++) {
