@@ -86,7 +86,7 @@ const scoringAlgorithms = [
 ];
 
 function initialPrompt() {
-  word = input.question ("Let's play some scrabble! Enter a word to score:");
+  let word = input.question ("Let's play some scrabble! Enter a word to score:");
   //console.log ("you entered" + word);
    //console.log("Let's play some scrabble! Enter a word to score:");
   
@@ -96,8 +96,8 @@ function initialPrompt() {
 
 
 function oldScrabbleScorer(userWord) {
- 
-	word = word.toUpperCase();
+
+	let word = userWord.toUpperCase();
     //console.log ("Now I'm in oldscrabble and the userWord is " +  word);
 	let letterPoints = "";
  
@@ -140,7 +140,7 @@ let userWord;
 
 function simpleScore(userWord){
 
-word = word.toUpperCase();
+let word = userWord.toUpperCase();
     //console.log ("Now I'm in simpleScoreDcrabble and the userWord is " +  word);
 	let letterPoints = "";
   //let simplePointValue = 0;
@@ -158,7 +158,7 @@ word = word.toUpperCase();
 
 function vowelBonusScore(userWord){
 
-  word = word.toUpperCase();
+let word = userWord.toUpperCase();
     //console.log ("Now I'm in vowelBonus and the userWord is " +  word);
 	let letterPoints=0; 
 	for (let i = 0; i < word.length; i++) {
@@ -179,13 +179,13 @@ function vowelBonusScore(userWord){
 	//we may not need to pass the algorithm
 
 function scorerPrompt(scoringAlgorithm) {
+
+  //we're not actually scoring it here.
  
 userScrabbleChoice = input.question ("Which scoring algorithm would you like to use? 0 - Simple: One point per character 1 - Vowel Bonus: Vowels are worth 3 points; 2 - Scrabble: Uses scrabble point system Enter 0, 1, or 2: "
 );
   
- 
- 
- 
+ /*
   //console.log ("Algorithm Name: " +  scoringAlgorithms[userScrabbleChoice].Name);
     if (Number(userScrabbleChoice) === 0){
      //console.log ("In the scoring algorithm section of scorerprompt");
@@ -205,10 +205,14 @@ else if (Number(userScrabbleChoice) === 1){
 
     }
 
-else console.log ("I'm down here");
-     return scoringAlgorithms [0];
+else 
+*/
+///console.log ("I'm down here");
+     return scoringAlgorithms[Number(userScrabbleChoice)];
+     //we're returning an object.
 
 }
+
 
 
 function transform(oldPointStructure) {
@@ -238,7 +242,7 @@ let newPointStructure =  transform(oldPointStructure);
 
 function scrabbleScore(userWord){
 
-  word = word.toLowerCase();//newPointStructure keys  are all lowercase.
+  let word = userWord.toLowerCase();//newPointStructure keys  are all lowercase.
     //console.log ("Now I'm in new ScrabbleScore and the userWord is " +  word);
   let letterPoints = 0;
   
@@ -278,8 +282,11 @@ function scrabbleScore(userWord){
 
 
 function runProgram() {
-   initialPrompt();
-   scorerPrompt();
+   let currentWord = initialPrompt();
+   let algorithmChoice = scorerPrompt();
+ 
+   algorithmChoice.scoringFunction(currentWord);
+   //returns an object
    //transform ();
    //oldScrabbleScorer(word);
   //simpleScore(word);
